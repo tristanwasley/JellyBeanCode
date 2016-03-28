@@ -44,9 +44,12 @@ class NumJellyEstimator:
     # \param people integer number of people on earth
     def set_world_pop(self, people):
 
-        # NE24: Add a test for type here
- 
-        # NE24: Add a test for value here
+        # NE24: Make sure world population is an integer
+        assert type(people) is integer
+            "Error: You cannot have a fraction of a person."
+        # NE24: The population has to be positive as well.
+        if (people < 0):
+            "Error: The population must be positive."
 
         # Store the fraction.
         self.worldPop = people
@@ -55,9 +58,14 @@ class NumJellyEstimator:
     ## Set the fraction of people who love the color pink.
     def set_frac_ppl_loving_pink(self, frac):
 
-        # NE24: Add a test for type here
+        # NE24: Make sure the total number of people who love pink is less than the world population
+        if (frac * people > people):
+            "Error: The fraction is too large for it to be true."
 
-        # NE24: Add a test for value here
+        # NE24: Check to see if frac is less than 1.
+        f = Fraction(frac)
+        if (f.denominator > f.numerator):
+            "Error: This is not a fraction less than 1."
 
         # Store the fraction.
         self.fracPplLovingPink = frac
@@ -94,6 +102,11 @@ class NumJellyEstimator:
                   +"computing estimate.\n"
 
         # NE24: What other checks might be useful? What is a better way to do this?
+        #I think something that might be more useful, would be to do all of these checks in the beginning
+        #of the code(when possible). In my mind at least, that way of doing it makes sense. Other checks
+        #would be to make sure that the input given isn't a string or logical or any other class like that. 
+
+
 
         return int(n)
 
